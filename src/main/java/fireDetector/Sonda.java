@@ -1,5 +1,6 @@
 package fireDetector;
 
+import interfaces.Observer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,18 +8,34 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Sonda {
+public class Sonda implements Observer{
 	private Long id;
-	private String latitudine;
-	private String longitudine;
-	private Integer smokeLevel = 0;
+	private String latitude;
+	private String longitude;
+	private Integer smokeLevel;
 	private CentroDiControllo centroControllo;
 	
-	public Sonda(Long id,String latitudine, String longitudine, Integer smokeLevel) {
+	public Sonda(Long id,String latitude, String longitude, Integer smokeLevel) {
 		this.id = id;
-		this.latitudine = latitudine;
-		this.longitudine = longitudine;
+		this.latitude = latitude;
+		this.longitude = longitude;
 		this.smokeLevel = smokeLevel;
 	}
+
+	@Override
+	public void smokeLevelController() {
+		
+		if(this.smokeLevel > 5) {
+			String notificatorUrl = generateNotificationUrl();
+			System.out.println("EMERGENCY ALARM! The smoke detector " + id + " has detected a smoke level of " + smokeLevel + "at latitude: " + latitude + "and longitude: " + longitude);
+			System.out.println("\n The command center sents the URL notification" + notificatorUrl);
+		} else {
+			System.out.println();
+			System.out.println("The smoke detector n" + id + "didn't detect any anomaly");
+		}
+	}
 	
+	public String generateNotificationUrl() {
+		return "http://host/alarm?=idsonda=" + id + "&lat=" + latitude + "&lon=" + longitude + "smokeLevel=" + smokeLevel;
+	}
 }
