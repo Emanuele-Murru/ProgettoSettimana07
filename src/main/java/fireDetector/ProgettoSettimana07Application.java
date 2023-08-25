@@ -9,7 +9,7 @@ public class ProgettoSettimana07Application {
 	public static void main(String[] args) {
 		SpringApplication.run(ProgettoSettimana07Application.class, args);
 		
-		SmokeDetector s1 = new SmokeDetector(1L, "48464", "86846", 4);
+		SmokeDetector s1 = new SmokeDetector(1L, "48464", "86846", 3);
 		SmokeDetector s2 = new SmokeDetector(2L, "-89994", "34842", 12);
 		SmokeDetector s3 = new SmokeDetector(3L, "13546", "-47853", 5);
 		SmokeDetector s4 = new SmokeDetector(4L, "-45486", "48321", 0);

@@ -13,7 +13,7 @@ public class SmokeDetector implements Observer{
 	private String latitude;
 	private String longitude;
 	private Integer smokeLevel;
-	private CommandCenter centroControllo;
+	private CommandCenter commandCenter;
 	
 	public SmokeDetector(Long id,String latitude, String longitude, Integer smokeLevel) {
 		this.id = id;
@@ -37,6 +37,6 @@ public class SmokeDetector implements Observer{
 	}
 	
 	public String generateNotificationUrl() {
-		return "http://host/alarm?=idsonda=" + id + "&lat=" + latitude + "&lon=" + longitude + "smokeLevel=" + smokeLevel;
+		return "http://host/alarm?idsmokedetector=" + id + "&lat=" + latitude + "&lon=" + longitude + "&smokeLevel=" + smokeLevel;
 	}
 }
