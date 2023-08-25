@@ -27,11 +27,12 @@ public class Sonda implements Observer{
 		
 		if(this.smokeLevel > 5) {
 			String notificatorUrl = generateNotificationUrl();
-			System.out.println("EMERGENCY ALARM! The smoke detector " + id + " has detected a smoke level of " + smokeLevel + "at latitude: " + latitude + "and longitude: " + longitude);
+			System.out.println("EMERGENCY ALARM! The smoke detector " + id + " has detected a smoke level of " + smokeLevel + " at latitude: " + latitude + " and longitude: " + longitude);
 			System.out.println("\n The command center sents the URL notification" + notificatorUrl);
+			System.out.println("----------------------------------------------------------------------------------------------");
 		} else {
 			System.out.println();
-			System.out.println("The smoke detector n" + id + "didn't detect any anomaly");
+			System.out.println("The smoke detector n " + id + " didn't detect any anomaly");
 		}
 	}
 	
