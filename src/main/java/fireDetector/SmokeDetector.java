@@ -8,14 +8,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Sonda implements Observer{
+public class SmokeDetector implements Observer{
 	private Long id;
 	private String latitude;
 	private String longitude;
 	private Integer smokeLevel;
-	private CentroDiControllo centroControllo;
+	private CommandCenter centroControllo;
 	
-	public Sonda(Long id,String latitude, String longitude, Integer smokeLevel) {
+	public SmokeDetector(Long id,String latitude, String longitude, Integer smokeLevel) {
 		this.id = id;
 		this.latitude = latitude;
 		this.longitude = longitude;
