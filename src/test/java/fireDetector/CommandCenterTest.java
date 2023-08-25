@@ -22,4 +22,15 @@ public class CommandCenterTest {
 		commandCenter.register(smokeDetector);
 		assertEquals(1, commandCenter.getSmokeDetectorList().size());
 	}
+	
+	@Test
+	public void notifyObserverTest() {
+		SmokeDetector smokeDetector = new SmokeDetector(1L, "-48468", "-22345", 0);
+		commandCenter.register(smokeDetector);
+		commandCenter.notifyObserver();
+		
+		for (SmokeDetector s : commandCenter.getSmokeDetectorList()) {
+			assertEquals(0, s.getSmokeLevel());
+		}
+	}
 }
